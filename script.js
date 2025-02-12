@@ -23,12 +23,25 @@ function handleNoClick() {
 }
 
 function handleYesClick() {
+    // Send an email notification using FormSubmit
+    fetch("https://formsubmit.co/pushpakumaraspotify@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            name: "Valentine Project",
+            message: "Someone clicked YES! ❤️"
+        })
+    });
+
+    // Show floating hearts animation
     for (let i = 0; i < 20; i++) {
         createHeart();
     }
+
+    // Redirect after a short delay
     setTimeout(() => {
         window.location.href = "yes_page.html";
-    }, 1000);
+    }, 3000);
 }
 
 function createHeart() {
